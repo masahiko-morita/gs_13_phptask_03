@@ -21,9 +21,15 @@ if($status==false) {
   //FETCH_ASSOC=http://php.net/manual/ja/pdostatement.fetch.php
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){ 
     //$resultにデータが入ってくるのでそれを活用して[html]に表示させる為の変数を作成して代入する
-    $view .= "<p>";
+    $view .= '<p>';
+    $view .= '<a href ="detail.php?id='.$result["id"].'">';
     $view .= $result["id"].":".$result["book_name"];
-    $view .= "<p>";
+    $view .= '</a>';
+    $view .= " ";
+    $view .= '<a href ="delete.php?id='.$result["id"].'">';
+    $view .= "[削除する]";
+    $view .= '</a>';
+    $view .= '<p>';
   }
 }
 ?>
